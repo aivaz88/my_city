@@ -1,0 +1,36 @@
+{% extends 'citizen_list/base.html' %}
+
+{% block title %} {{citizen.name}} {% endblock %}
+
+{% load static %}
+
+{% block css_additional %}
+    <link rel="stylesheet" href=" {% static 'citizen_list/css/title.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h2>Информация о гражданине</h2>
+    {% include './navbar.html' %}
+    <h3> Имя Фамилия: {{citizen.name}} </h3>
+    <h3> Возраст: {{citizen.age}} </h3>
+    {% if citizen.status == 1 %}
+        <h3> Социальный статус: управленец </h3>
+    {% elif citizen.status == 2 %}
+        <h3> Социальный статус: торговец </h3>
+    {% elif citizen.status == 3 %}
+        <h3> Социальный статус: рабочий </h3>
+    {% else %}
+        <h3> Социальный статус: не определен </h3>
+    {% endif %}
+    {% if citizen.status == 1 %}
+        <h3> Заработная плата: 150000 </h3>
+    {% elif citizen.status == 2 %}
+        <h3> Заработная плата: 100000 </h3>
+    {% elif citizen.status == 3 %}
+        <h3> Заработная плата: 50000 </h3>
+    {% else %}
+        <h3> Социальный статус: не определен </h3>
+    {% endif %}
+    <h3> Начальник: {{boss_name.name}} </h3>
+    {% include './navbar.html' %}
+{% endblock %}

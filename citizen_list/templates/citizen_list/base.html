@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}  {% endblock %}</title>
+    {% load static %}
+    {% block css_additional %} {% endblock %}
+
+</head>
+<body>
+    <header>
+        <div id="header">
+            <div>
+                <TABLE background="{% static 'citizen_list/img/title-img.jpg' %}">
+                <TR>
+                <TD align="center" valign="center" width="150" height="230">
+                    <a href="{% url 'title' %}">
+                        <img src="{% static 'citizen_list/img/foto.jpg' %}" alt="фото">
+                    </a>
+                </TD>
+                <TD align="center" valign="center" width="740">
+                    <h1><tt>Гареев Айваз Шамилевич</tt></h1>
+                    <h3><tt>Дата рождения: 01 апреля 1988г.</tt> <br>
+                    <tt>Телефон: +7-927-317-64-88</tt> <br>
+                    <tt>e-mail: aivaz1988@mail.ru</tt> <br>
+                    <tt>tg: aivaz88</tt></h3>
+                </TD>
+                </TABLE>
+
+            </div>
+        </div>
+    </header>
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

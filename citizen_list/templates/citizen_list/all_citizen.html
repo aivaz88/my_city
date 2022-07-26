@@ -1,0 +1,59 @@
+
+{% extends 'citizen_list/base.html' %}
+
+{% block title %} Все граждане {% endblock %}
+
+{% load static %}
+
+{% block css_additional %}
+    <link rel="stylesheet" href=" {% static 'citizen_list/css/title.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% include './navbar.html' %}
+    <h2>Список всех граждан</h2>
+    <TABLE border="2">
+        <TR>
+            <TD align="center" valign="center" width="297">
+                <h3>Управленцы</h3>
+            </TD>
+            <TD align="center" valign="center" width="297">
+                <h3>Торговцы</h3>
+            </TD>
+            <TD align="center" valign="center" width="296">
+                <h3>Рабочие</h3>
+            </TD>
+        </TR>
+        <TR>
+            <TD align="left" valign="top" width="297">
+                <ol>
+                    {% for citizen in citizen_list %}
+                        {% if citizen.status == 1 %}
+                            <li><a href = "{{ citizen.get_url }}">{{citizen.name}}</a> </li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+            </TD>
+            <TD align="left" valign="top" width="297">
+                <ol>
+                    {% for citizen in citizen_list %}
+                        {% if citizen.status == 2 %}
+                            <li><a href = "{{ citizen.get_url }}">{{citizen.name}}</a> </li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+            </TD>
+            <TD align="left" valign="top" width="296">
+                <ol>
+                    {% for citizen in citizen_list %}
+                        {% if citizen.status == 3 %}
+                            <li><a href = "{{ citizen.get_url }}">{{citizen.name}}</a> </li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+            </TD>
+        </TR>
+    </TABLE>
+
+    {% include './navbar.html' %}
+{% endblock %}

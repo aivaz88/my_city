@@ -1,0 +1,17 @@
+{% extends 'citizen_list/base.html' %}
+
+{% block title %} Контакты {% endblock %}
+
+{% load static %}
+
+{% block css_additional %}
+    <link rel="stylesheet" href=" {% static 'citizen_list/css/title.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% include './navbar.html' %}
+    <h2>Мои контакты:</h2>
+    <h3>тел.: +7-927-317-64-88</h3>
+    <h3>e-mail: aivaz1988@mail.ru</h3>
+    {% include './navbar.html' %}
+{% endblock %}
